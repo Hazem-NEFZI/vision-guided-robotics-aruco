@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vision-guided-robotics-aruco"
+version = "2.0.0"
+description = "ArUco pose estimation, planar-pose ambiguity reporting, calibrated frame composition, and ROS 2 visualization."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Hazem Nefzi"}]
+dependencies = ["numpy>=1.26,<3", "opencv-contrib-python-headless>=4.10,<5", "matplotlib>=3.8,<4", "scipy>=1.11,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[tool.setuptools.packages.find]
+include = ["robotics_vision*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["F"]
